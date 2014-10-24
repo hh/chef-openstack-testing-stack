@@ -6,10 +6,11 @@ If you want a tl;dr here's a [youtube video](https://www.youtube.com/watch?v=GBt
 $ vagrant add centos65 http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box
 $ mkdir ~/code
 $ cd ~/code
-$ git clone https://github.com/jjasghar/singlestack.git
-$ cd singlestack
+$ git clone https://github.com/jjasghar/chef-openstack-testing-stack.git shortstack
+$ cd shortstack
 $ bundle install
 $ bundle exec berks vendor cookbooks
+$ ruby -e "require 'openssl'; puts OpenSSL::PKey::RSA.new(2048).to_pem" > .chef/validation.pem
 ```
 
 Then you'll want to add a `validation.pem` to `.chef/`. If you don't have one you can set up a free account at
